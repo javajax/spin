@@ -209,6 +209,11 @@ def push
   # arguments.
   files_to_load = ARGV
 
+  # fixes the empty -e
+  if ARGV.last == ''
+    ARGV.pop
+  end
+
   # We reject anything in ARGV that isn't a file that exists. This takes
   # care of scripts that specify files like `spin push -r file.rb`. The `-r`
   # bit will just be ignored.
